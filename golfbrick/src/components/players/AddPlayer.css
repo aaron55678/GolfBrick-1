@@ -1,0 +1,9 @@
+.addplayer-section{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 30px 0;
+}
+.addplayer-section > *{
+    padding: 0 10px
+}

@@ -1,0 +1,14 @@
+.player-section{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 15px 0;
+}
+.player-section > *{
+    padding: 0 10px;
+}
+.postcode{
+    display: flex;
+    align-items: center;
+}
+
