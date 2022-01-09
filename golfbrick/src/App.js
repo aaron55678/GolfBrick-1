@@ -5,12 +5,18 @@ import Players from './components/players/Players';
 import OutputOptions from './components/outputs/OutputOptions';
 
 
-const App = () => {
+const App = (props) => {
+  let playerArray = [];
+  const updatedStatusHandler = (updatedStatus) =>{
+    playerArray = updatedStatus;
+    console.log(playerArray);
+  }
+
   return (
     <div className="App">
       <Nav />
-      <AddPlayer />
-      <Players />
+      <AddPlayer playerArrays={playerArray} onUpdatedStatus={updatedStatusHandler}/>
+      <Players playerArray={playerArray}/>
       <OutputOptions />
     </div>
   );

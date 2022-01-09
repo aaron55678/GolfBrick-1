@@ -1,6 +1,10 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './Player.css';
-import { TextField } from '@mui/material';
+import { TextField, Fab, } from '@mui/material';
+import RemoveIcon from '@mui/icons-material/Remove';
+
+
+
 const Player = () => {
     
     return (
@@ -11,6 +15,9 @@ const Player = () => {
             <div className='postcode'>
                 <TextField id="outlined-basic" label="Postcode" variant="outlined" />
             </div>
+            <Fab style={{backgroundColor: '#FF1A1E'}} size='small' aria-label="remove" >
+                <RemoveIcon style={{color: 'white'}} />
+            </Fab>
         </div>
     );
 }

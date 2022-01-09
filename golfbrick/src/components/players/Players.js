@@ -4,14 +4,12 @@ import Player from './Player';
 import { Button } from '@mui/material';
 import GolfCourseIcon from '@mui/icons-material/GolfCourse';
 
-const Players = () => {
+const Players = (props) => {
+    
     
     return (
         <div className='players-section'>
-            <Player />
-            <Player />
-            <Player />
-            <Player />
+            {props.playerArray.map(() => {})}
             <Button className='search-button' size='large' variant="outlined" endIcon={<GolfCourseIcon />}>Search</Button>
         </div>
     );
