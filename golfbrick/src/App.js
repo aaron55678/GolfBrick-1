@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import './App.css';
 import Nav from './components/header/Nav';
 import AddPlayer from './components/players/AddPlayer';
@@ -5,21 +6,33 @@ import Players from './components/players/Players';
 import OutputOptions from './components/outputs/OutputOptions';
 
 
+const initialAddedPlayers = [
+    {
+        id: 'player1'
+    },
+    {
+        id: 'player2'
+    },
+    {
+        id: 'player3'
+    }
+]
 const App = (props) => {
-  let playerArray = [];
-  const updatedStatusHandler = (updatedStatus) =>{
-    playerArray = updatedStatus;
-    console.log(playerArray);
-  }
-
+  const [addedPlayers, setAddedPlayers] = useState(initialAddedPlayers);
+  
+  const updatedStatusHandler = (addedPlayersData) =>{
+    setAddedPlayers(prevAddedPlayers => {
+      return [addedPlayersData, ...prevAddedPlayers];
+    });
+  };
   return (
     <div className="App">
       <Nav />
-      <AddPlayer playerArrays={playerArray} onUpdatedStatus={updatedStatusHandler}/>
-      <Players playerArray={playerArray}/>
+      <AddPlayer onUpdatedStatus={updatedStatusHandler}/>
+      <Players addedPlayers={addedPlayers}/>
       <OutputOptions />
     </div>
   );
-}
+};
 
 export default App;

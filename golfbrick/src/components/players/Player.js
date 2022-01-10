@@ -1,11 +1,11 @@
-import React, { useState } from 'react';
+import React, {  } from 'react';
 import './Player.css';
 import { TextField, Fab, } from '@mui/material';
 import RemoveIcon from '@mui/icons-material/Remove';
 
 
 
-const Player = () => {
+const Player = (props) => {
     
     return (
         <div className='player-section'>

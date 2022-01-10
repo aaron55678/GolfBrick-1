@@ -5,10 +5,13 @@ import Fab from '@mui/material/Fab';
 import AddIcon from '@mui/icons-material/Add';
 
 const AddPlayer = (props) => {
-    const [addPlayer, setAddPlayer] = useState(props.playerArray);
+    
+    const [addPlayer, setAddPlayer] = useState({});
 
     const addPlayerHandler = () =>{
-        setAddPlayer(props.playerArray.concat('New Player Added'));
+        setAddPlayer({
+            id: 'addedPlayer'
+        });
         props.onUpdatedStatus(addPlayer);
         
     };
@@ -21,7 +24,7 @@ const AddPlayer = (props) => {
             <h3>Add Player</h3>
         </div>
     );
-}
+};
 
 export default AddPlayer;
             
