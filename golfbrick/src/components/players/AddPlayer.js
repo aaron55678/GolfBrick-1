@@ -10,10 +10,10 @@ const AddPlayer = (props) => {
 
     const addPlayerHandler = () =>{
         setAddPlayer({
-            id: 'addedPlayer'
+            id: Math.random().toString(),
         });
         props.onUpdatedStatus(addPlayer);
-        
+        console.log(addPlayer);
     };
     
     return (
@@ -27,5 +27,6 @@ const AddPlayer = (props) => {
 };
 
 export default AddPlayer;
+
             
             

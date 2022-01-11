@@ -7,29 +7,29 @@ import OutputOptions from './components/outputs/OutputOptions';
 
 
 const initialAddedPlayers = [
-    {
-        id: 'player1'
-    },
-    {
-        id: 'player2'
-    },
-    {
-        id: 'player3'
-    }
+    
 ]
-const App = (props) => {
-  const [addedPlayers, setAddedPlayers] = useState(initialAddedPlayers);
+const App = () => {
+  const [addedPlayers, setAddedPlayers] = useState([]);
   
   const updatedStatusHandler = (addedPlayersData) =>{
     setAddedPlayers(prevAddedPlayers => {
       return [addedPlayersData, ...prevAddedPlayers];
     });
+    /* console.log(addedPlayers); */
   };
+
+  const onDeletedPlayerPassHandler = (deletedPlayer) => {
+    setAddedPlayers(prevPlayers => {
+      return [...deletedPlayer];
+    })
+  }
+
   return (
     <div className="App">
       <Nav />
       <AddPlayer onUpdatedStatus={updatedStatusHandler}/>
-      <Players addedPlayers={addedPlayers}/>
+      <Players addedPlayers={addedPlayers} onDeletedPlayerPass={onDeletedPlayerPassHandler}/>
       <OutputOptions />
     </div>
   );
