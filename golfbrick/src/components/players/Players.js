@@ -8,12 +8,8 @@ import GolfCourseIcon from '@mui/icons-material/GolfCourse';
 const Players = (props) => {
     
     const removedPlayerIdHandler = (removedId) => {
-        console.log(removedId);
-        props.players.filter((player) => {
-            console.log(player.id);
-
-            return player.id !== removedId;
-        });
+        
+        props.onDeletedPlayerChange(removedId);
     };//need to rerender the map function below
     
     return (

@@ -19,14 +19,24 @@ const App = () => {
     console.log(addedPlayer);
   };
 
+  const deletedPlayerChangeHandler = (removedId) => {
+    console.log(removedId);
+    setAddedPlayer(() => {
+      return addedPlayer.filter(player => player.id !== removedId);
+    })
+    
+  };
+
   return (
     <div className="App">
       <Nav />
       <AddPlayer onPlayerStatusChange={playerStatusChangeHandler} />
-      <Players players={addedPlayer} />
+      <Players players={addedPlayer} onDeletedPlayerChange={deletedPlayerChangeHandler}/>
       <OutputOptions />
     </div>
   );
 };
 
 export default App;
+      
+
