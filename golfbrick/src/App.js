@@ -13,7 +13,7 @@ const App = () => {
       if (prevAddedPlayer.length === 0) {
         return [{ id: playerId }];
       } else {
-        return [...prevAddedPlayer, { id: playerId }];
+        return [...prevAddedPlayer, { id: playerId }]; //using passed up player id to construct player array
       };
     });
     console.log(addedPlayer);

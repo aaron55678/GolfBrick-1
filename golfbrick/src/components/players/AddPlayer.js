@@ -8,8 +8,7 @@ const AddPlayer = (props) => {
     const [addedPlayerStatus, setAddedPlayerStatus] = useState(Math.random().toString());
     const playerStatusHandler = () => {
         setAddedPlayerStatus(Math.random().toString());
-        props.onPlayerStatusChange(addedPlayerStatus);
-        //setAddedPlayerStatus('');
+        props.onPlayerStatusChange(addedPlayerStatus);//passing up state to players array
     }
     
     return (
