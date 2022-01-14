@@ -7,13 +7,15 @@ import GolfCourseIcon from '@mui/icons-material/GolfCourse';
 
 const Players = (props) => {
     
-    const saveDeletedPlayerHandler = (deletedPlayer) => {
-        props.onDeletedPlayerPass(deletedPlayer);
-    }
+    
     
     return (
         <div className='players-section'>
-            {props.addedPlayers.map(() => <Player addedPlayers={props.addedPlayers} onDeletedPlayer={saveDeletedPlayerHandler}/> )}
+            <ul>
+                {props.players.map((player) => {
+                    return <li key={player.id}><Player ></Player></li>
+                })}
+            </ul>
             <Button className='search-button' size='large' variant="outlined" endIcon={<GolfCourseIcon />}>Search</Button>
         </div>
     );
