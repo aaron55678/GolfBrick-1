@@ -1,38 +1,40 @@
-import { useState } from 'react';
-import './App.css';
-import Nav from './components/header/Nav';
-import AddPlayer from './components/players/AddPlayer';
-import Players from './components/players/Players';
-import OutputOptions from './components/outputs/OutputOptions';
+import { useState } from "react";
+import "./App.css";
+import Nav from "./components/header/Nav";
+import AddPlayer from "./components/players/AddPlayer";
+import Players from "./components/players/Players";
+import OutputOptions from "./components/outputs/OutputOptions";
 
-
-const initialAddedPlayers = [
-    
-]
 const App = () => {
-  const [addedPlayers, setAddedPlayers] = useState([]);
+  const [addedPlayer, setAddedPlayer] = useState([]);
   
-  const updatedStatusHandler = (addedPlayersData) =>{
-    setAddedPlayers(prevAddedPlayers => {
-      return [addedPlayersData, ...prevAddedPlayers];
+  const playerStatusChangeHandler = (playerId) => {
+    setAddedPlayer((prevAddedPlayer) => {
+      if (prevAddedPlayer.length === 0) {
+        return [{ id: playerId }];
+      } else {
+        return [...prevAddedPlayer, { id: playerId }]; //using passed up player id to construct player array
+      };
     });
-    /* console.log(addedPlayers); */
   };
 
-  const onDeletedPlayerPassHandler = (deletedPlayer) => {
-    setAddedPlayers(prevPlayers => {
-      return [...deletedPlayer];
+  const deletedPlayerChangeHandler = (removedId) => {
+    setAddedPlayer(() => {
+      return addedPlayer.filter(player => player.id !== removedId);//filtering player array to remove deleted player
     })
-  }
+    
+  };
 
   return (
     <div className="App">
       <Nav />
-      <AddPlayer onUpdatedStatus={updatedStatusHandler}/>
-      <Players addedPlayers={addedPlayers} onDeletedPlayerPass={onDeletedPlayerPassHandler}/>
+      <AddPlayer onPlayerStatusChange={playerStatusChangeHandler} />
+      <Players players={addedPlayer} onDeletedPlayerChange={deletedPlayerChangeHandler}/>
       <OutputOptions />
     </div>
   );
 };
 
 export default App;
+      
+

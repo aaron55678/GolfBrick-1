@@ -5,20 +5,16 @@ import Fab from '@mui/material/Fab';
 import AddIcon from '@mui/icons-material/Add';
 
 const AddPlayer = (props) => {
+    const [addedPlayerStatus, setAddedPlayerStatus] = useState(Math.random().toString());
     
-    const [addPlayer, setAddPlayer] = useState({});
-
-    const addPlayerHandler = () =>{
-        setAddPlayer({
-            id: Math.random().toString(),
-        });
-        props.onUpdatedStatus(addPlayer);
-        console.log(addPlayer);
-    };
+    const playerStatusHandler = () => {
+        setAddedPlayerStatus(Math.random().toString());
+        props.onPlayerStatusChange(addedPlayerStatus);//passing up state to players array
+    }
     
     return (
         <div className='addplayer-section'>
-            <Fab size='small' color='primary' aria-label='add' onClick={addPlayerHandler}>
+            <Fab size='small' color='primary' aria-label='add' onClick={playerStatusHandler}>
                 <AddIcon  />
             </Fab>
             <h3>Add Player</h3>

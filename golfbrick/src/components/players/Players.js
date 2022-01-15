@@ -7,16 +7,21 @@ import GolfCourseIcon from '@mui/icons-material/GolfCourse';
 
 const Players = (props) => {
     
-    const saveDeletedPlayerHandler = (deletedPlayer) => {
-        props.onDeletedPlayerPass(deletedPlayer);
-    }
+    const removedPlayerIdHandler = (removedId) => {
+        props.onDeletedPlayerChange(removedId);//passing up state
+    };//need to rerender the map function below
     
     return (
         <div className='players-section'>
-            {props.addedPlayers.map(() => <Player addedPlayers={props.addedPlayers} onDeletedPlayer={saveDeletedPlayerHandler}/> )}
+            <ul>
+                {props.players.map((player) => {
+                    return <li key={player.id}><Player player={player} onRemovedPlayerId={removedPlayerIdHandler}></Player></li>;
+                })}
+            </ul>
             <Button className='search-button' size='large' variant="outlined" endIcon={<GolfCourseIcon />}>Search</Button>
         </div>
     );
 }
 
 export default Players;
+        

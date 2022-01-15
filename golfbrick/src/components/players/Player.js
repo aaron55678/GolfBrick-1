@@ -6,16 +6,11 @@ import RemoveIcon from '@mui/icons-material/Remove';
 
 
 const Player = (props) => {
-    const [deletePlayer, setDeletePlayer] = useState(props.addedPlayers);
+    const [removedPlayer, setRemovedPlayer] = useState(props.player.id); //setting this original state alleviates the need to double click to remove player
 
-    const deleteHandler = () => {
-        setDeletePlayer(props.addedPlayers.filter((el) => {
-            console.log(el.id)
-            return el !== el.id;
-        }))
-        props.onDeletedPlayer(deletePlayer);
+    const removePlayerHandler = () => {
+        props.onRemovedPlayerId(removedPlayer);//passing up state to remove player
     };
-
     return (
         <div className='player-section'>
             <div>
@@ -24,8 +19,8 @@ const Player = (props) => {
             <div className='postcode'>
                 <TextField id="outlined-basic" label="Postcode" variant="outlined" />
             </div>
-            <Fab style={{backgroundColor: '#FF1A1E'}} size='small' aria-label="remove" >
-                <RemoveIcon style={{color: 'white'}} onClick={deleteHandler}/>
+            <Fab style={{backgroundColor: '#FF1A1E'}} size='small' aria-label="remove" onClick={removePlayerHandler}>
+                <RemoveIcon style={{color: 'white'}} />
             </Fab>
         </div>
     );
