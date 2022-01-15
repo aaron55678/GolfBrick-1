@@ -6,14 +6,10 @@ import RemoveIcon from '@mui/icons-material/Remove';
 
 
 const Player = (props) => {
-    const [removedPlayer, setRemovedPlayer] = useState('');
+    const [removedPlayer, setRemovedPlayer] = useState(props.player.id); //setting this original state alleviates the need to double click to remove player
 
     const removePlayerHandler = () => {
-        setRemovedPlayer(() => {
-            return props.player.id;
-        });
-        props.onRemovedPlayerId(removedPlayer);
-        console.log(removedPlayer); //removedPlayer does not change straight away
+        props.onRemovedPlayerId(removedPlayer);//passing up state to remove player
     };
     return (
         <div className='player-section'>

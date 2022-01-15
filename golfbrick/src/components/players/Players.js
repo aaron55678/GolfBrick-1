@@ -8,8 +8,7 @@ import GolfCourseIcon from '@mui/icons-material/GolfCourse';
 const Players = (props) => {
     
     const removedPlayerIdHandler = (removedId) => {
-        
-        props.onDeletedPlayerChange(removedId);
+        props.onDeletedPlayerChange(removedId);//passing up state
     };//need to rerender the map function below
     
     return (
@@ -25,3 +24,4 @@ const Players = (props) => {
 }
 
 export default Players;
+        

@@ -16,13 +16,11 @@ const App = () => {
         return [...prevAddedPlayer, { id: playerId }]; //using passed up player id to construct player array
       };
     });
-    console.log(addedPlayer);
   };
 
   const deletedPlayerChangeHandler = (removedId) => {
-    console.log(removedId);
     setAddedPlayer(() => {
-      return addedPlayer.filter(player => player.id !== removedId);
+      return addedPlayer.filter(player => player.id !== removedId);//filtering player array to remove deleted player
     })
     
   };

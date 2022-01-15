@@ -6,6 +6,7 @@ import AddIcon from '@mui/icons-material/Add';
 
 const AddPlayer = (props) => {
     const [addedPlayerStatus, setAddedPlayerStatus] = useState(Math.random().toString());
+    
     const playerStatusHandler = () => {
         setAddedPlayerStatus(Math.random().toString());
         props.onPlayerStatusChange(addedPlayerStatus);//passing up state to players array
