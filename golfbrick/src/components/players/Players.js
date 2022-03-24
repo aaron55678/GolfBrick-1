@@ -10,12 +10,14 @@ const Players = (props) => {
     props.onDeletedPlayerChange(removedId); //passing up state
   }; //need to rerender the map function below
 
-  const playerChangeHandler = (playerChange, playerId) => {
-    props.onPlayerDataChange(playerChange, playerId); //passing player name up to app.js
+  const playerChangeHandler = (player, playerId) => {
+    props.onPlayerDataChange(player, playerId);
+     //passing player name up to app.js
   };
 
-  const postcodeChangeHandler = (postcodeChange, playerId) => {
-    props.onPostcodeDataChange(postcodeChange, playerId); //passing player name up to app.js
+  const postcodeChangeHandler = (postcode, playerId) => {
+    props.onPostcodeDataChange(postcode, playerId);
+    //passing player name up to app.js
   };
 
   const submittedFormHandler = () => {
@@ -47,6 +49,7 @@ const Players = (props) => {
       >
         Search
       </Button>
+      
     </div>
   );
 };

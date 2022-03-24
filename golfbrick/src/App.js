@@ -8,7 +8,7 @@ import OutputOptions from "./components/outputs/OutputOptions";
 const App = () => {
   const [addedPlayer, setAddedPlayer] = useState([]);
 
-  const playerStatusChangeHandler = (playerId) => {
+  const playerStatusChangeHandler = (playerId) => { //method to add player to data array
     setAddedPlayer((prevAddedPlayer) => {
       if (prevAddedPlayer.length === 0) {
         return [{ id: playerId, name: "", postcode: "" }];
@@ -16,9 +16,11 @@ const App = () => {
         return [...prevAddedPlayer, { id: playerId, name: "", postcode: "" }]; //using passed up player id to construct player array
       }
     });
+    
+
   };
 
-  const deletedPlayerChangeHandler = (removedId) => {
+  const deletedPlayerChangeHandler = (removedId) => { //method to remove player
     setAddedPlayer(() => {
       return addedPlayer.filter((player) => player.id !== removedId); //filtering player array to remove deleted player
     });
@@ -33,6 +35,8 @@ const App = () => {
         return;
       };
     });
+    
+    console.log(playerChange);
     //i believe this function is working but i think it is one entry behind
   };
 
@@ -45,8 +49,13 @@ const App = () => {
         return;
       };
     });
+    
     //this function is also one entry behind
   };
+
+  //test function
+  
+  
   return (
     <div className="App">
       <Nav />

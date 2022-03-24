@@ -5,21 +5,21 @@ import RemoveIcon from "@mui/icons-material/Remove";
 
 const Player = (props) => {
   const [removedPlayer, setRemovedPlayer] = useState(props.player.id); //setting this original state alleviates the need to double click to remove player
-  const [playerName, setPlayerName] = useState("");
-  const [postcodeValue, setPostcodeValue] = useState("");
+  
 
   const removePlayerHandler = () => {
     props.onRemovedPlayerId(removedPlayer); //passing up state to remove player
   };
 
   const playerNameHandler = (event) => {
-    setPlayerName(event.target.value);
-    props.onPlayerChange(playerName, props.player.id); //passing player name up to players.js
+    let player = event.target.value
+    props.onPlayerChange(player, props.player.id); 
+    //passing player name up to players.js
   };
 
   const postcodeHandler = (event) => {
-    setPostcodeValue(event.target.value);
-    props.onPostcodeChange(postcodeValue, props.player.id); 
+    let postcode = event.target.value
+    props.onPostcodeChange(postcode, props.player.id); 
   };
   return (
     <div className="player-section">
