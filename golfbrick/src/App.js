@@ -27,6 +27,7 @@ const App = () => {
   };
 
   const playerDataChangeHandler = (playerChange, playerId) => {
+    
     addedPlayer.forEach((el,index)=>{
       if(addedPlayer[index].id === playerId){
         return addedPlayer[index].name = playerChange;
@@ -35,8 +36,9 @@ const App = () => {
         return;
       };
     });
+    setAddedPlayer(addedPlayer);
+      
     
-    console.log(playerChange);
     //i believe this function is working but i think it is one entry behind
   };
 
@@ -49,7 +51,7 @@ const App = () => {
         return;
       };
     });
-    
+    setAddedPlayer(addedPlayer);
     //this function is also one entry behind
   };
 
