@@ -3,7 +3,11 @@ import "./App.css";
 import Nav from "./components/header/Nav";
 import AddPlayer from "./components/players/AddPlayer";
 import Players from "./components/players/Players";
+import WrappedMap from "./components/outputs/Map";
 import OutputOptions from "./components/outputs/OutputOptions";
+
+
+
 
 const App = () => {
   const [addedPlayer, setAddedPlayer] = useState([]);
@@ -55,8 +59,6 @@ const App = () => {
     //this function is also one entry behind
   };
 
-  //test function
-  
   
   return (
     <div className="App">
@@ -69,8 +71,21 @@ const App = () => {
         onPostcodeDataChange={postcodeDataChangeHandler}
       />
       <OutputOptions />
+      <div style={{width: '75vw', height: '75vh'}}>
+        <WrappedMap 
+          googleMapURL={`https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=geometry,drawing,places&key=${//insert Key here
+          }`}
+          loadingElement={<div style={{height: '100%'}}/>}
+          containerElement={<div style={{height: '100%'}}/>}
+          mapElement={<div style={{height: '100%'}}/>}
+
+        />
+      </div>
+      
+        
     </div>
   );
 };
 
 export default App;
+          
