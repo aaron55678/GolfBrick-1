@@ -72,13 +72,12 @@ const App = () => {
       />
       <OutputOptions />
       <div style={{width: '75vw', height: '75vh'}}>
-        <WrappedMap 
-          googleMapURL={`https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=geometry,drawing,places&key=${//insert Key here
-          }`}
+        <WrappedMap //found in outputs/Map file
+          googleMapURL={`https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=geometry,drawing,places&`}//key=${process.env.REACT_APP_GOOGLE_MAP}`}
           loadingElement={<div style={{height: '100%'}}/>}
           containerElement={<div style={{height: '100%'}}/>}
           mapElement={<div style={{height: '100%'}}/>}
-
+          players={addedPlayer}
         />
       </div>
       
@@ -88,4 +87,3 @@ const App = () => {
 };
 
 export default App;
-          
