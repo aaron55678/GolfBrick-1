@@ -11,6 +11,7 @@ import OutputOptions from "./components/outputs/OutputOptions";
 
 const App = () => {
   const [addedPlayer, setAddedPlayer] = useState([]);
+  const [submitStatus, setSubmitStatus] = useState(false);
 
   const playerStatusChangeHandler = (playerId) => { //method to add player to data array
     setAddedPlayer((prevAddedPlayer) => {
@@ -59,6 +60,17 @@ const App = () => {
     //this function is also one entry behind
   };
 
+  const searchStatusChangeHandler = (status) => {
+    if(status === '200'){
+      setSubmitStatus(prevState => true); //set submit status to true from passed up state onClick
+    }
+  }
+
+  const onSubmitUpdateHandler = (status) => {
+    if(status === '200'){
+      setSubmitStatus(prevState => false); //sets state back to false after update in Map component
+    }
+  }
   
   return (
     <div className="App">
@@ -69,6 +81,7 @@ const App = () => {
         onDeletedPlayerChange={deletedPlayerChangeHandler}
         onPlayerDataChange={playerDataChangeHandler}
         onPostcodeDataChange={postcodeDataChangeHandler}
+        onSearchStatusChange={searchStatusChangeHandler}
       />
       <OutputOptions />
       <div style={{width: '75vw', height: '75vh'}}>
@@ -78,6 +91,8 @@ const App = () => {
           containerElement={<div style={{height: '100%'}}/>}
           mapElement={<div style={{height: '100%'}}/>}
           players={addedPlayer}
+          submitStatus={submitStatus}
+          onSubmitUpdate={onSubmitUpdateHandler}
         />
       </div>
       

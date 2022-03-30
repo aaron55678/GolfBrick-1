@@ -2,6 +2,8 @@ import React from 'react';
 import './Map.css';
 import { GoogleMap, withScriptjs, withGoogleMap, Marker,} from 'react-google-maps';
 
+const postcodes = require('node-postcodes.io')
+
 //dummy pplayer location data
 
   
@@ -26,7 +28,7 @@ const playerPositions = [
 
 
 const Map = (props) => {
-    
+
     const findCenter = () => {
         let latTot = 0;
         let lngTot = 0;
@@ -39,6 +41,10 @@ const Map = (props) => {
     
     let centerCoords = findCenter();
     console.log(centerCoords[0]); 
+
+    if(props.submitStatus === true){
+        props.onSubmitUpdate('200');//sets state in app back to false
+    };
     
     return (
         <div className='map-section'>

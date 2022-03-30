@@ -18,7 +18,7 @@ const Player = (props) => {
   };
 
   const postcodeHandler = (event) => {
-    let postcode = event.target.value
+    let postcode = event.target.value;
     props.onPostcodeChange(postcode, props.player.id); 
   };
   return (

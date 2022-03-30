@@ -2,8 +2,8 @@ import React from "react";
 import "./Players.css";
 import "./Player.css";
 import Player from "./Player";
-import { Button } from "@mui/material";
-import GolfCourseIcon from "@mui/icons-material/GolfCourse";
+import Search from "./Search";
+
 
 const Players = (props) => {
   const removedPlayerIdHandler = (removedId) => {
@@ -20,9 +20,9 @@ const Players = (props) => {
     //passing player name up to app.js
   };
 
-  const submittedFormHandler = () => {
-      console.log(props.players);
-  };
+  const searchClickHandler = (status) => {
+    props.onSearchStatusChange(status);
+  }
 
   return (
     <div className="players-section">
@@ -40,15 +40,10 @@ const Players = (props) => {
           );
         })}
       </ul>
-      <Button
-        className="search-button"
-        size="large"
-        variant="outlined"
-        endIcon={<GolfCourseIcon />}
-        onClick={submittedFormHandler}
-      >
-        Search
-      </Button>
+      <Search 
+        players={props.addedPlayer}
+        onSearchClick={searchClickHandler}
+      />
       
     </div>
   );
